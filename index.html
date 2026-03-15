@@ -116,7 +116,7 @@
   footer { background: #1a1a1a; color: #666; text-align: center; padding: 26px; font-size: 12px; }
   footer span { color: #16a37f; }
 
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.55s ease, transform 0.55s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 800px) {
@@ -389,6 +389,9 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Add visible immediately so content never hidden
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.08 });
