@@ -9,438 +9,133 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    background: #ffffff;
-    color: #1a1a1a;
-    line-height: 1.7;
-    font-size: 15px;
-  }
-
+  body { font-family: 'Inter', sans-serif; font-weight: 400; background: #ffffff; color: #1a1a1a; line-height: 1.7; font-size: 15px; }
   a { color: inherit; text-decoration: none; }
 
-  /* NAV */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(10px);
     border-bottom: 1px solid #f0f0f0;
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 62px;
   }
-  .nav-logo {
-    font-weight: 600;
-    font-size: 15px;
-    color: #1a1a1a;
-    letter-spacing: -0.02em;
-  }
+  .nav-logo { font-weight: 600; font-size: 16px; color: #1a1a1a; letter-spacing: -0.02em; }
   .nav-logo span { color: #16a37f; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 13px;
-    color: #666;
-    transition: color 0.2s;
-    font-weight: 400;
-  }
+  .nav-links a { font-size: 13px; color: #666; transition: color 0.2s; }
   .nav-links a:hover { color: #1a1a1a; }
-  .nav-cta {
-    font-size: 13px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.2s;
-  }
+  .nav-cta { font-size: 13px; background: #1a1a1a; color: #fff; padding: 8px 20px; border-radius: 6px; font-weight: 500; transition: background 0.2s; }
   .nav-cta:hover { background: #333; }
 
-  /* HERO */
-  .hero {
-    padding: 80px 5% 70px;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 40px;
-  }
-  .hero-left {}
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: #16a37f;
-    background: #f0fdf8;
-    border: 1px solid #9fe1cb;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-  .hero-tag::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #16a37f;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 5vw, 4rem);
-    font-weight: 600;
-    color: #1a1a1a;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .hero-sub {
-    font-size: 15px;
-    color: #666;
-    max-width: 500px;
-    line-height: 1.75;
-    margin-bottom: 32px;
-  }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-dark {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 11px 22px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 500;
-    transition: background 0.2s, transform 0.15s;
-  }
+  .hero { max-width: 1100px; margin: 0 auto; padding: 80px 5% 70px; display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: center; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: #16a37f; background: #f0fdf8; border: 1px solid #9fe1cb; padding: 5px 14px; border-radius: 20px; font-weight: 500; margin-bottom: 22px; }
+  .hero-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #16a37f; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 600; color: #1a1a1a; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .hero-sub { font-size: 15px; color: #555; max-width: 480px; line-height: 1.8; margin-bottom: 32px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn-dark { display: inline-flex; align-items: center; gap: 8px; background: #1a1a1a; color: #fff; padding: 12px 24px; border-radius: 7px; font-size: 13px; font-weight: 500; transition: background 0.2s, transform 0.15s; }
   .btn-dark:hover { background: #333; transform: translateY(-1px); }
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1.5px solid #e5e5e5;
-    color: #444;
-    padding: 11px 22px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 500;
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #e0e0e0; color: #444; padding: 12px 24px; border-radius: 7px; font-size: 13px; font-weight: 500; transition: all 0.2s; }
   .btn-outline:hover { border-color: #1a1a1a; color: #1a1a1a; }
+  .hero-stats { display: flex; gap: 14px; }
+  .stat-pill { background: #f5f5f5; border-radius: 8px; padding: 12px 18px; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 600; color: #1a1a1a; line-height: 1; }
+  .stat-lbl { font-size: 10px; color: #999; margin-top: 3px; }
 
-  .hero-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-end;
-  }
-  .stat-card {
-    background: #f9f9f9;
-    border: 1px solid #efefef;
-    border-radius: 12px;
-    padding: 18px 24px;
-    text-align: center;
-    min-width: 130px;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    line-height: 1;
-  }
-  .stat-lbl {
-    font-size: 11px;
-    color: #999;
-    margin-top: 4px;
-    font-weight: 400;
-  }
+  .hero-right { display: flex; flex-direction: column; gap: 14px; }
+  .photo-card { border-radius: 16px; overflow: hidden; border: 1px solid #efefef; }
+  .photo-placeholder { width: 100%; aspect-ratio: 3/4; background: #f0fdf8; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; position: relative; cursor: pointer; transition: background 0.2s; }
+  .photo-placeholder:hover { background: #e4f9f0; }
+  .photo-initials { width: 88px; height: 88px; border-radius: 50%; background: #16a37f; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; }
+  .photo-name { font-size: 14px; font-weight: 600; color: #0f6e56; }
+  .photo-role { font-size: 12px; color: #3b8a6e; }
+  .photo-hint { position: absolute; bottom: 14px; background: rgba(255,255,255,0.92); border: 1px solid #c0e8d4; border-radius: 6px; padding: 5px 12px; font-size: 11px; color: #444; }
+  .photo-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; }
+  .info-strip { background: #f9f9f9; border: 1px solid #efefef; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 9px; }
+  .info-row { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #555; }
+  .info-icon { width: 30px; height: 30px; background: #fff; border: 1px solid #e8e8e8; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
 
-  /* DIVIDER */
-  .divider {
-    border: none;
-    border-top: 1px solid #f0f0f0;
-    margin: 0;
-  }
+  .divider { border: none; border-top: 1px solid #f0f0f0; }
+  .section { max-width: 1100px; margin: 0 auto; padding: 64px 5%; }
+  .sec-eyebrow { font-size: 11px; color: #16a37f; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 8px; }
+  .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 600; color: #1a1a1a; line-height: 1.2; margin-bottom: 38px; }
 
-  /* SECTION WRAPPER */
-  .section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 5%;
-  }
-  .sec-eyebrow {
-    font-size: 11px;
-    color: #16a37f;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  .sec-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 600;
-    color: #1a1a1a;
-    line-height: 1.2;
-    margin-bottom: 36px;
-  }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .skill-card {
-    background: #fafafa;
-    border: 1px solid #efefef;
-    border-radius: 10px;
-    padding: 20px 22px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .skill-card:hover {
-    border-color: #d0ead8;
-    box-shadow: 0 2px 12px rgba(22,163,127,0.06);
-  }
-  .skill-cat {
-    font-size: 10px;
-    font-weight: 600;
-    color: #16a37f;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .skill-card { background: #fafafa; border: 1px solid #efefef; border-radius: 10px; padding: 20px 22px; transition: border-color 0.2s; }
+  .skill-card:hover { border-color: #9fe1cb; }
+  .skill-cat { font-size: 10px; font-weight: 600; color: #16a37f; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-tag {
-    font-size: 12px;
-    background: #ffffff;
-    border: 1px solid #e8e8e8;
-    color: #444;
-    padding: 4px 10px;
-    border-radius: 5px;
-    transition: background 0.15s, border-color 0.15s;
-  }
+  .skill-tag { font-size: 12px; background: #fff; border: 1px solid #e8e8e8; color: #444; padding: 4px 10px; border-radius: 5px; transition: all 0.15s; }
   .skill-tag:hover { background: #f0fdf8; border-color: #9fe1cb; color: #0f6e56; }
 
-  /* EXPERIENCE */
-  .exp-list { display: flex; flex-direction: column; gap: 0; }
-  .exp-item {
-    padding: 28px 0;
-    border-bottom: 1px solid #f0f0f0;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 32px;
-    align-items: start;
-    transition: background 0.15s;
-  }
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-item { padding: 30px 0; border-bottom: 1px solid #f0f0f0; display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: start; }
   .exp-item:last-child { border-bottom: none; }
-  .exp-left {}
-  .exp-company {
-    font-weight: 600;
-    font-size: 14px;
-    color: #1a1a1a;
-    margin-bottom: 4px;
-  }
-  .exp-period {
-    font-size: 11px;
-    color: #999;
-    margin-bottom: 6px;
-  }
-  .exp-location {
-    font-size: 11px;
-    color: #bbb;
-  }
-  .exp-right {}
-  .exp-role {
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 10px;
-  }
-  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .exp-bullets li {
-    font-size: 13.5px;
-    color: #555;
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.6;
-  }
-  .exp-bullets li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 9px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #16a37f;
-  }
+  .exp-company { font-weight: 600; font-size: 14px; color: #1a1a1a; margin-bottom: 5px; }
+  .exp-period { font-size: 11px; color: #999; margin-bottom: 4px; }
+  .exp-location { font-size: 11px; color: #bbb; }
+  .exp-role { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .exp-bullets li { font-size: 13.5px; color: #555; padding-left: 16px; position: relative; line-height: 1.65; }
+  .exp-bullets li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: #16a37f; }
 
-  /* PROJECTS */
-  .proj-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  .proj-card {
-    border: 1px solid #efefef;
-    border-radius: 12px;
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .proj-card:hover {
-    border-color: #16a37f;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(22,163,127,0.08);
-  }
-  .proj-num {
-    font-size: 11px;
-    color: #ccc;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-  }
-  .proj-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    line-height: 1.2;
-  }
-  .proj-desc {
-    font-size: 13.5px;
-    color: #666;
-    line-height: 1.7;
-    flex: 1;
-  }
-  .proj-stack { display: flex; flex-wrap: wrap; gap: 5px; }
-  .proj-tag {
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 4px;
-    background: #f0fdf8;
-    color: #0f6e56;
-    border: 1px solid #9fe1cb;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-  .proj-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #16a37f;
-    font-weight: 500;
-    transition: gap 0.2s;
-  }
-  .proj-link:hover { gap: 10px; }
+  .proj-note { background: #fffdf5; border: 1px solid #f0e8c0; border-left: 3px solid #e8a800; border-radius: 8px; padding: 13px 18px; font-size: 13px; color: #666; margin-bottom: 28px; line-height: 1.7; }
+  .proj-note strong { color: #1a1a1a; }
 
-  /* CONTACT */
-  .contact-wrap {
-    background: #f9f9f9;
-    border: 1px solid #efefef;
-    border-radius: 16px;
-    padding: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    align-items: start;
-  }
-  .contact-left {}
-  .contact-intro {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.75;
-    margin-bottom: 24px;
-  }
-  .contact-links { display: flex; flex-direction: column; gap: 12px; }
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13.5px;
-    color: #1a1a1a;
-    transition: color 0.2s;
-  }
+  .proj-list { display: flex; flex-direction: column; gap: 30px; }
+  .proj-card { border: 1px solid #efefef; border-radius: 14px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .proj-card:hover { border-color: #16a37f; box-shadow: 0 6px 28px rgba(22,163,127,0.07); }
+  .proj-header { padding: 28px 32px 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .proj-num { font-size: 11px; color: #ccc; font-weight: 500; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .proj-name { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600; color: #1a1a1a; line-height: 1.1; margin-bottom: 10px; }
+  .proj-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .badge-live { font-size: 11px; background: #f0fdf8; color: #0f6e56; border: 1px solid #9fe1cb; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+  .badge-type { font-size: 11px; background: #f5f5f5; color: #555; border: 1px solid #e5e5e5; padding: 3px 10px; border-radius: 20px; }
+  .proj-link-btn { display: inline-flex; align-items: center; gap: 6px; background: #1a1a1a; color: #fff; font-size: 12px; font-weight: 500; padding: 9px 18px; border-radius: 7px; transition: background 0.2s; white-space: nowrap; align-self: flex-start; margin-top: 4px; }
+  .proj-link-btn:hover { background: #333; }
+  .proj-body { padding: 20px 32px 28px; }
+  .proj-desc { font-size: 14px; color: #555; line-height: 1.8; margin-bottom: 20px; }
+  .proj-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 9px; margin-bottom: 22px; }
+  .feat-item { display: flex; align-items: flex-start; gap: 10px; background: #fafafa; border: 1px solid #f0f0f0; border-radius: 8px; padding: 10px 13px; }
+  .feat-dot { width: 7px; height: 7px; border-radius: 50%; background: #16a37f; margin-top: 6px; flex-shrink: 0; }
+  .feat-text { font-size: 12.5px; color: #444; line-height: 1.55; }
+  .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 16px; border-top: 1px solid #f5f5f5; }
+  .proj-tag { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 4px; background: #f0fdf8; color: #0f6e56; border: 1px solid #c0e8d4; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .contact-wrap { background: #f9f9f9; border: 1px solid #efefef; border-radius: 16px; padding: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .contact-intro { font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 28px; }
+  .contact-links { display: flex; flex-direction: column; gap: 13px; }
+  .contact-link { display: flex; align-items: center; gap: 12px; font-size: 13.5px; color: #1a1a1a; transition: color 0.2s; }
   .contact-link:hover { color: #16a37f; }
-  .contact-icon {
-    width: 34px;
-    height: 34px;
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    flex-shrink: 0;
-  }
-  .contact-right {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .contact-card {
-    background: #fff;
-    border: 1px solid #efefef;
-    border-radius: 10px;
-    padding: 16px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .cc-label { font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .contact-icon { width: 36px; height: 36px; background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; font-weight: 600; }
+  .contact-right { display: flex; flex-direction: column; gap: 12px; }
+  .contact-card { background: #fff; border: 1px solid #efefef; border-radius: 10px; padding: 16px 18px; }
+  .cc-label { font-size: 10px; color: #bbb; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 4px; }
   .cc-val { font-size: 13.5px; color: #1a1a1a; }
 
-  /* FOOTER */
-  footer {
-    background: #1a1a1a;
-    color: #999;
-    text-align: center;
-    padding: 24px;
-    font-size: 12px;
-  }
+  footer { background: #1a1a1a; color: #666; text-align: center; padding: 26px; font-size: 12px; }
   footer span { color: #16a37f; }
 
-  /* SCROLL REVEAL */
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* MOBILE */
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     .hero { grid-template-columns: 1fr; }
-    .hero-stats { flex-direction: row; align-items: flex-start; }
+    .hero-right { order: -1; max-width: 260px; margin: 0 auto; }
     .exp-item { grid-template-columns: 1fr; gap: 6px; }
-    .contact-wrap { grid-template-columns: 1fr; }
+    .contact-wrap { grid-template-columns: 1fr; padding: 24px; }
     .nav-links { display: none; }
+    .proj-header { flex-direction: column; padding: 20px 20px 0; }
+    .proj-body { padding: 16px 20px 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Swapnil<span>.</span></div>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -450,26 +145,37 @@
 </nav>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="about">
   <div class="hero-left">
-    <div class="hero-tag">Available for opportunities</div>
+    <div class="hero-tag">Open to new opportunities</div>
     <h1>Swapnil<br>Badgujar</h1>
-    <p class="hero-sub">
-      PHP Laravel Developer with 2+ years of experience building secure, scalable backend systems and RESTful APIs. Based in Nashik, Maharashtra.
-    </p>
+    <p class="hero-sub">PHP Laravel Developer with 2+ years of experience building secure, high-performance backend systems, RESTful APIs, and scalable multi-tenant web applications. Currently at Digital Creations, Nashik.</p>
     <div class="hero-btns">
       <a href="#projects" class="btn-dark">View Projects &rarr;</a>
       <a href="mailto:swapnilbadgujar744@gmail.com" class="btn-outline">&#9993; Get in Touch</a>
     </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-card">
-      <div class="stat-num">2+</div>
-      <div class="stat-lbl">Years Experience</div>
+    <div class="hero-stats">
+      <div class="stat-pill"><div class="stat-num">2+</div><div class="stat-lbl">Years Exp.</div></div>
+      <div class="stat-pill"><div class="stat-num">3</div><div class="stat-lbl">Companies</div></div>
+      <div class="stat-pill"><div class="stat-num">2</div><div class="stat-lbl">Live Products</div></div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">3</div>
-      <div class="stat-lbl">Companies</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="photo-card">
+      <!-- Photo area: click to upload your photo -->
+      <div class="photo-placeholder" id="photoArea" onclick="document.getElementById('photoInput').click()">
+        <div class="photo-initials">SB</div>
+        <div class="photo-name">Swapnil Badgujar</div>
+        <div class="photo-role">PHP Laravel Developer</div>
+        <div class="photo-hint">&#128247; Click to add your photo</div>
+        <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="loadPhoto(event)">
+      </div>
+    </div>
+    <div class="info-strip">
+      <div class="info-row"><div class="info-icon">&#128205;</div>Nashik, Maharashtra, India</div>
+      <div class="info-row"><div class="info-icon">&#128188;</div>Laravel Developer &mdash; Digital Creations</div>
+      <div class="info-row"><div class="info-icon">&#9989;</div>Available for Full-time &middot; Freelance</div>
     </div>
   </div>
 </div>
@@ -483,65 +189,27 @@
   <div class="skills-grid">
     <div class="skill-card reveal">
       <div class="skill-cat">Backend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">PHP</span>
-        <span class="skill-tag">Laravel</span>
-        <span class="skill-tag">CodeIgniter</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">MVC</span>
-        <span class="skill-tag">Middleware</span>
-        <span class="skill-tag">WebSockets</span>
-        <span class="skill-tag">Authentication</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">PHP</span><span class="skill-tag">Laravel</span><span class="skill-tag">CodeIgniter</span><span class="skill-tag">REST APIs</span><span class="skill-tag">MVC Architecture</span><span class="skill-tag">Middleware</span><span class="skill-tag">WebSockets</span><span class="skill-tag">Authentication</span></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-cat">Database &amp; Performance</div>
-      <div class="skill-tags">
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">Redis</span>
-        <span class="skill-tag">Caching</span>
-        <span class="skill-tag">Query Optimization</span>
-        <span class="skill-tag">Indexing</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">Redis</span><span class="skill-tag">Caching</span><span class="skill-tag">Query Optimization</span><span class="skill-tag">Indexing</span><span class="skill-tag">Database Design</span></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-cat">Architecture</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Multi-Tenant</span>
-        <span class="skill-tag">RBAC</span>
-        <span class="skill-tag">Laravel Queues</span>
-        <span class="skill-tag">Background Jobs</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">Multi-Tenant</span><span class="skill-tag">RBAC</span><span class="skill-tag">Laravel Queues</span><span class="skill-tag">Background Jobs</span><span class="skill-tag">Laravel Sanctum</span></div>
     </div>
     <div class="skill-card reveal">
-      <div class="skill-cat">DevOps &amp; Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">Linux Servers</span>
-        <span class="skill-tag">Git &amp; GitHub</span>
-        <span class="skill-tag">Postman</span>
-        <span class="skill-tag">VS Code</span>
-      </div>
+      <div class="skill-cat">DevOps &amp; Deployment</div>
+      <div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Linux Servers</span><span class="skill-tag">Zero-Downtime Release</span><span class="skill-tag">Software Deployment</span></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-cat">Frontend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">HTML5</span>
-        <span class="skill-tag">CSS3</span>
-        <span class="skill-tag">Bootstrap</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">AJAX</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">Bootstrap</span><span class="skill-tag">JavaScript</span><span class="skill-tag">AJAX</span></div>
     </div>
     <div class="skill-card reveal">
-      <div class="skill-cat">Integrations</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Razorpay</span>
-        <span class="skill-tag">Laravel Sanctum</span>
-        <span class="skill-tag">Backpack for Laravel</span>
-        <span class="skill-tag">Reelo</span>
-      </div>
+      <div class="skill-cat">Tools &amp; Integrations</div>
+      <div class="skill-tags"><span class="skill-tag">Git &amp; GitHub</span><span class="skill-tag">Postman</span><span class="skill-tag">VS Code</span><span class="skill-tag">Razorpay</span><span class="skill-tag">Backpack for Laravel</span><span class="skill-tag">Reelo</span></div>
     </div>
   </div>
 </section>
@@ -553,7 +221,6 @@
   <div class="sec-eyebrow">Where I've worked</div>
   <h2 class="sec-title">Work Experience</h2>
   <div class="exp-list">
-
     <div class="exp-item reveal">
       <div class="exp-left">
         <div class="exp-company">Digital Creations</div>
@@ -564,14 +231,13 @@
         <div class="exp-role">PHP Laravel Developer</div>
         <ul class="exp-bullets">
           <li>Designed scalable multi-tenant web applications with centralized role-based authentication for Main Admin, Hotel, Outlet, Staff, and User logins.</li>
-          <li>Optimized performance using advanced caching, query tuning, and indexing for high-traffic environments.</li>
-          <li>Implemented Laravel Queues and background jobs for large datasets and bulk multi-PDF generation.</li>
-          <li>Managed Linux web servers and built CI/CD pipelines for zero-downtime production releases.</li>
-          <li>Integrated multiple payment gateways and Reelo loyalty platform for reward point automation.</li>
+          <li>Optimized performance using advanced caching strategies, query tuning, and indexing for high-traffic environments.</li>
+          <li>Implemented Laravel Queues and background jobs for large datasets and bulk multi-PDF generation without impacting live performance.</li>
+          <li>Managed Linux web servers and built CI/CD pipelines for automated testing and zero-downtime production releases.</li>
+          <li>Integrated multiple payment gateways and Reelo loyalty platform for automated reward point management.</li>
         </ul>
       </div>
     </div>
-
     <div class="exp-item reveal">
       <div class="exp-left">
         <div class="exp-company">Midknight</div>
@@ -581,14 +247,13 @@
       <div class="exp-right">
         <div class="exp-role">Full Stack PHP Laravel Developer</div>
         <ul class="exp-bullets">
-          <li>Developed dynamic web applications using Laravel framework with interactive user interfaces.</li>
+          <li>Developed fully dynamic and interactive web applications using the Laravel framework.</li>
           <li>Built custom CRUD operations for admin panel using Backpack for Laravel.</li>
-          <li>Integrated RESTful APIs and third-party services successfully.</li>
+          <li>Integrated RESTful APIs and multiple third-party services.</li>
           <li>Implemented advanced database design, query optimization, and data security measures.</li>
         </ul>
       </div>
     </div>
-
     <div class="exp-item reveal">
       <div class="exp-left">
         <div class="exp-company">NPIT Solutions</div>
@@ -598,14 +263,13 @@
       <div class="exp-right">
         <div class="exp-role">Full Stack PHP Developer</div>
         <ul class="exp-bullets">
-          <li>Utilized MySQL database for efficient data storage and management.</li>
-          <li>Developed mobile-responsive designs to enhance user experience across devices.</li>
-          <li>Built web applications using PHP with robust backend systems.</li>
-          <li>Applied SQL injection prevention techniques to enhance application security.</li>
+          <li>Built robust backend applications using PHP and MySQL for data storage and management.</li>
+          <li>Developed mobile-responsive designs to enhance user experience across all devices.</li>
+          <li>Implemented secure login, user interface, and data management features.</li>
+          <li>Applied SQL injection prevention techniques to strengthen application security.</li>
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -614,55 +278,79 @@
 <!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="sec-eyebrow">Things I've built</div>
-  <h2 class="sec-title">Projects</h2>
-  <div class="proj-grid">
+  <h2 class="sec-title">Featured Projects</h2>
+
+  <div class="proj-note">
+    <strong>About these projects:</strong> These are my 2 most recent production projects — both are currently live and serving real users in India. I built the complete backend systems for both from scratch, including architecture, APIs, deployment, and third-party integrations. These are not personal side projects.
+  </div>
+
+  <div class="proj-list">
 
     <div class="proj-card reveal">
-      <div class="proj-num">01</div>
-      <div class="proj-name">eTable</div>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px;">
-        <span style="font-size:11px;background:#f0fdf8;color:#0f6e56;border:1px solid #9fe1cb;padding:2px 9px;border-radius:10px;font-weight:500;">Live Product</span>
-        <a href="https://etable.co.in" target="_blank" style="font-size:11px;color:#16a37f;font-weight:500;">etable.co.in &rarr;</a>
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">PROJECT 01</div>
+          <div class="proj-name">eTable</div>
+          <div class="proj-badges">
+            <span class="badge-live">&#9679; Live Product</span>
+            <span class="badge-type">Cloud SaaS</span>
+            <span class="badge-type">Multi-Tenant</span>
+            <span class="badge-type">Restaurant &amp; Hotel</span>
+          </div>
+        </div>
+        <a href="https://etable.co.in" target="_blank" class="proj-link-btn">Visit etable.co.in &rarr;</a>
       </div>
-      <p class="proj-desc">
-        A production-grade, cloud-based restaurant &amp; hotel management platform serving small cafes to multi-branch chains. Built as a scalable multi-tenant system with centralized Super Admin control. Key capabilities include real-time order management across dine-in, takeaway and delivery channels, QR-code based digital menu &amp; ordering, kitchen display system (KOT/KDS), table reservations with real-time availability, branch-wise billing and reporting dashboard, and WhatsApp alerts for orders. Integrates with Razorpay, Paytm, Zomato, Cashfree, and Reelo loyalty platform for reward automation.
-      </p>
-      <div class="proj-stack">
-        <span class="proj-tag">Laravel</span>
-        <span class="proj-tag">Multi-Tenant</span>
-        <span class="proj-tag">MySQL</span>
-        <span class="proj-tag">Redis</span>
-        <span class="proj-tag">RBAC</span>
-        <span class="proj-tag">Laravel Queues</span>
-        <span class="proj-tag">CI/CD</span>
-        <span class="proj-tag">Razorpay</span>
-        <span class="proj-tag">Reelo</span>
-        <span class="proj-tag">Linux Server</span>
+      <div class="proj-body">
+        <p class="proj-desc">A production-grade, cloud-based restaurant and hotel management platform currently serving businesses from small cafes to multi-branch chains across India. Built on Laravel with a scalable multi-tenant architecture — each hotel/restaurant gets its own isolated environment under a central Super Admin. eTable provides complete operational control: dine-in, takeaway, online orders, kitchen management, billing, reservations, and customer engagement — all from one dashboard, on any device.</p>
+        <div class="proj-features">
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Cloud-Based POS — real-time sync, works on any device, offline-capable billing</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">KOT &amp; KDS — Kitchen Order Ticket &amp; Kitchen Display System for faster service</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">QR-Code Digital Menu &amp; Ordering — guests scan, browse menu, and order from table</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Table, Room &amp; Space Management — real-time availability, virtual queue, reservations</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Multi-Branch Control — manage multiple outlets with separate menus, pricing &amp; reports</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Role-Based Access — Super Admin, Hotel Admin, Outlet, Staff, Cashier, Waiter</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Dashboard &amp; Reports — daily sales, top-selling items, tax reports, customer analytics</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Cart Sharing &amp; Pickup Orders — branded online ordering platform per outlet</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">WhatsApp Alerts — instant order notifications and customer communication</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Reelo Loyalty Platform — automated reward points &amp; customer retention</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Payment Integrations — Razorpay, Paytm, Cashfree + Swiggy &amp; Zomato sync</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Laravel Queues — bulk PDF report generation in background, zero performance impact</div></div>
+        </div>
+        <div class="proj-stack">
+          <span class="proj-tag">Laravel</span><span class="proj-tag">PHP</span><span class="proj-tag">MySQL</span><span class="proj-tag">Redis</span><span class="proj-tag">Multi-Tenant</span><span class="proj-tag">RBAC</span><span class="proj-tag">Laravel Queues</span><span class="proj-tag">CI/CD</span><span class="proj-tag">Linux Server</span><span class="proj-tag">Razorpay</span><span class="proj-tag">Paytm</span><span class="proj-tag">Cashfree</span><span class="proj-tag">Reelo</span><span class="proj-tag">WebSockets</span>
+        </div>
       </div>
-      <a href="https://etable.co.in" target="_blank" class="proj-link">Visit Live Site &rarr;</a>
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-num">02</div>
-      <div class="proj-name">TezChal</div>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px;">
-        <span style="font-size:11px;background:#f0fdf8;color:#0f6e56;border:1px solid #9fe1cb;padding:2px 9px;border-radius:10px;font-weight:500;">Live Product</span>
-        <a href="https://tezchal.com" target="_blank" style="font-size:11px;color:#16a37f;font-weight:500;">tezchal.com &rarr;</a>
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">PROJECT 02</div>
+          <div class="proj-name">TezChal</div>
+          <div class="proj-badges">
+            <span class="badge-live">&#9679; Live Product</span>
+            <span class="badge-type">Mobile + Web Backend</span>
+            <span class="badge-type">Grocery Delivery</span>
+          </div>
+        </div>
+        <a href="https://tezchal.com" target="_blank" class="proj-link-btn">Visit tezchal.com &rarr;</a>
       </div>
-      <p class="proj-desc">
-        Zepto-inspired instant grocery delivery platform — a full backend system handling the complete order lifecycle from placement to doorstep delivery. Features include real-time order processing &amp; tracking, smart delivery partner assignment, live inventory management, and secure customer authentication via Laravel Sanctum. Razorpay integrated for online payments. RESTful APIs power both mobile and web apps with role-based access for Admin, Customer, and Delivery Partner modules.
-      </p>
-      <div class="proj-stack">
-        <span class="proj-tag">Laravel</span>
-        <span class="proj-tag">Sanctum</span>
-        <span class="proj-tag">REST APIs</span>
-        <span class="proj-tag">MySQL</span>
-        <span class="proj-tag">Razorpay</span>
-        <span class="proj-tag">Real-time</span>
-        <span class="proj-tag">RBAC</span>
-        <span class="proj-tag">Inventory Mgmt</span>
+      <div class="proj-body">
+        <p class="proj-desc">A complete backend system for an instant grocery delivery platform inspired by Zepto and Blinkit. TezChal manages the full order lifecycle — from customer placement to real-time tracking to doorstep delivery — with smart delivery partner assignment and live inventory control. The RESTful APIs power both mobile apps and the web frontend, with Laravel Sanctum for secure authentication and role-based access for all user types.</p>
+        <div class="proj-features">
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Real-Time Order Processing — instant placement, live status tracking, order management</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Smart Delivery Partner Assignment — auto-assign nearest available delivery agent</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Live Inventory Management — stock tracking, low-stock alerts, product availability sync</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Secure Authentication via Laravel Sanctum — token-based API auth for mobile &amp; web</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Razorpay Payment Integration — online payments, refund handling, payment tracking</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Role-Based Modules — Admin, Customer, and Delivery Partner with separate dashboards</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">Optimized RESTful APIs — designed and consumed by both mobile app and web frontend</div></div>
+          <div class="feat-item"><div class="feat-dot"></div><div class="feat-text">User Management — registration, address book, order history, profile management</div></div>
+        </div>
+        <div class="proj-stack">
+          <span class="proj-tag">Laravel</span><span class="proj-tag">PHP</span><span class="proj-tag">Laravel Sanctum</span><span class="proj-tag">REST APIs</span><span class="proj-tag">MySQL</span><span class="proj-tag">Razorpay</span><span class="proj-tag">Real-time</span><span class="proj-tag">RBAC</span><span class="proj-tag">Inventory Mgmt</span>
+        </div>
       </div>
-      <a href="https://tezchal.com" target="_blank" class="proj-link">Visit Live Site &rarr;</a>
     </div>
 
   </div>
@@ -676,64 +364,52 @@
   <h2 class="sec-title">Get in Touch</h2>
   <div class="contact-wrap reveal">
     <div class="contact-left">
-      <p class="contact-intro">
-        I'm currently open to new opportunities — full-time roles, contract work, or freelance projects. If you have a project in mind or just want to say hello, my inbox is always open.
-      </p>
+      <p class="contact-intro">I'm currently open to new opportunities — full-time backend roles, contract work, or freelance Laravel projects. If you're building something that needs a solid backend, I'd love to hear about it. My inbox is always open.</p>
       <div class="contact-links">
         <a href="mailto:swapnilbadgujar744@gmail.com" class="contact-link">
-          <div class="contact-icon">&#9993;</div>
-          swapnilbadgujar744@gmail.com
+          <div class="contact-icon">&#9993;</div>swapnilbadgujar744@gmail.com
         </a>
         <a href="tel:+917666617213" class="contact-link">
-          <div class="contact-icon">&#128222;</div>
-          +91-7666617213
+          <div class="contact-icon">&#128222;</div>+91-7666617213
         </a>
         <a href="https://linkedin.com/in/swapnil-badgujar" target="_blank" class="contact-link">
-          <div class="contact-icon">in</div>
-          linkedin.com/in/swapnil-badgujar
+          <div class="contact-icon" style="font-size:11px;">in</div>linkedin.com/in/swapnil-badgujar
         </a>
         <a href="https://github.com/swapnilbadgujar132" target="_blank" class="contact-link">
-          <div class="contact-icon" style="font-size:13px;">GH</div>
-          github.com/swapnilbadgujar132
+          <div class="contact-icon" style="font-size:11px;">GH</div>github.com/swapnilbadgujar132
         </a>
       </div>
     </div>
     <div class="contact-right">
-      <div class="contact-card">
-        <div class="cc-label">Location</div>
-        <div class="cc-val">Nashik, Maharashtra, India</div>
-      </div>
-      <div class="contact-card">
-        <div class="cc-label">Current Role</div>
-        <div class="cc-val">PHP Laravel Developer at Digital Creations</div>
-      </div>
-      <div class="contact-card">
-        <div class="cc-label">Open To</div>
-        <div class="cc-val">Full-time &middot; Contract &middot; Freelance</div>
-      </div>
-      <div class="contact-card">
-        <div class="cc-label">Experience</div>
-        <div class="cc-val">2+ Years in Backend Development</div>
-      </div>
+      <div class="contact-card"><div class="cc-label">Location</div><div class="cc-val">Nashik, Maharashtra, India</div></div>
+      <div class="contact-card"><div class="cc-label">Current Role</div><div class="cc-val">PHP Laravel Developer &mdash; Digital Creations</div></div>
+      <div class="contact-card"><div class="cc-label">Experience</div><div class="cc-val">2+ Years &mdash; Backend &amp; Full Stack PHP</div></div>
+      <div class="contact-card"><div class="cc-label">Open To</div><div class="cc-val">Full-time &middot; Contract &middot; Freelance</div></div>
+      <div class="contact-card"><div class="cc-label">Specialization</div><div class="cc-val">Laravel &middot; REST APIs &middot; Multi-Tenant SaaS</div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  Built with care by <span>Swapnil Badgujar</span> &copy; 2025
+  Designed &amp; built by <span>Swapnil Badgujar</span> &copy; 2025 &mdash; PHP Laravel Developer, Nashik
 </footer>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function loadPhoto(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const card = document.getElementById('photoArea').parentElement;
+      card.innerHTML = '<img src="' + e.target.result + '" alt="Swapnil Badgujar">';
+    };
+    reader.readAsDataURL(file);
+  }
 </script>
 </body>
 </html>
